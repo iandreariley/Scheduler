@@ -3,6 +3,7 @@ package edu.pasadena.scheduler;
 import java.nio.charset.Charset;
 import java.sql.SQLException;
 import java.io.IOException;
+import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,8 +18,8 @@ public class DownloadServlet extends HttpServlet{
 	
 	private Database database;
 	
-	private final static String url = "jdbc:mysql://localhost:3306/javabase";
-	private final static String username = "java";
+	private final static String url = "jdbc:mysql://localhost:3306/scheduler";
+	private final static String username = "schedule_admin";
 	private final static String password = "password";
 	
 	public DownloadServlet()
@@ -55,10 +56,17 @@ public class DownloadServlet extends HttpServlet{
     		String fileName = "dreamSheetCSV";
     		response.setContentType("text/plain charset=utf-8");
     		ServletOutputStream downloadStream = response.getOutputStream();
-    		response.setHeader("Content-Disposition", "attachment; filename=\"" + fileName + "\"");
-    		downloadStream.write(database.formsToCSV().getBytes(Charset.forName("UTF-8")));
-    		downloadStream.flush();
-    		downloadStream.close();
+    		if(downloadStream.equals(null))
+    		{
+    			Logger.getGlobal().info("downloadStream is null");
+    		}
+    		else
+    		{
+	    		response.setHeader("Content-Disposition", "attachment; filename=\"" + fileName + "\"");
+	    		downloadStream.write(database.formsToCSV().getBytes(Charset.forName("UTF-8")));
+	    		downloadStream.flush();
+	    		downloadStream.close();
+    		}
     	}
     	catch(SQLException exp)
     	{

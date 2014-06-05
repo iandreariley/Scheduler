@@ -21,10 +21,15 @@ import javax.servlet.annotation.WebServlet;
 //This servlet needs the Mailer class which does the bulk of the work.
 //This servlet also needs some methods that will change the body and subject of the
 //message, a slick thing to add would be a method that auto decides the message and subject.
+
 /**
  * Servlet for mailing out email links to the professors
  * @author Gregory Miles, Nick Brooks, Ian Riley
- *
+ * NOTE ON RUNTIME CLASSPATH: javax.mail-1.5.1.jar must be added to the runtime
+ * classpath.
+ * In eclipse 3.8 using tomcat 7.0 as a server use menu:
+ * run-->run configuration-->tomcat-->classpath-->add external jars
+ * and add the aforementioned .jar 
  */
 @WebServlet("/ProfMailServlet")
 public class ProfMailServlet extends HttpServlet
@@ -41,7 +46,7 @@ public class ProfMailServlet extends HttpServlet
 		String password = "Super1234Awesome1234Password";
 		String from = "pccMathSchedule@gmail.com";
 		this.mailer = new Mailer(port,hostname,from,username,password);
-		this.to = "gmiles@go.pasadena.edu";
+		this.to = "iriley@go.pasadena.edu";
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{

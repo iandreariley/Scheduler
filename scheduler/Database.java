@@ -6,6 +6,14 @@ import java.util.ArrayList;
  /**
   * An object of this class manipulates data and makes queries to the database specified
   * in the 'url' variable.
+  * CLASSPATH SPECIFICATIONS:
+  * BUILD: requires connector/j .jar to be added to project
+  * RUNTIME: requires that connector/j .jar be added to the runtime classpath.
+  * In this case, the apache tomcat server must have the external .jar
+  * mysql-connector-java-5.1.3.0.jar added under
+  * run-->run configurations-->tomcat7.0-->classpath
+  * Select add external JARS and seach the aforementioned jar file, and add it
+  * to the classpath
   * @author Nicholas Brooks, Gregory Miles, Ian Riley
   *
   */
