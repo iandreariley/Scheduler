@@ -60,7 +60,8 @@ public class AddInstructorServlet extends HttpServlet{
 			return;
 		}
 		
-		if(id.matches(validID) && !duplicate)
+		
+		if(id.matches(validID) /*checks if string is valid id string */ && !duplicate)
 		{
 			//make a new id!
 			String query = "first="+firstName+"&last="+lastName+"&id="+id;

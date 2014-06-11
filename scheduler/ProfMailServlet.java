@@ -25,11 +25,12 @@ import javax.servlet.annotation.WebServlet;
 /**
  * Servlet for mailing out email links to the professors
  * @author Gregory Miles, Nick Brooks, Ian Riley
- * NOTE ON RUNTIME CLASSPATH: javax.mail-1.5.1.jar must be added to the runtime
- * classpath.
- * In eclipse 3.8 using tomcat 7.0 as a server use menu:
- * run-->run configuration-->tomcat-->classpath-->add external jars
- * and add the aforementioned .jar 
+ * NOTE ON CLASSPATH: javax.mail-1.5.1.jar must be added to the build path, and then
+ * added to the deployment assembly /WEB-INF/lib so that the libraries are available
+ * at runtime:
+ * [right-click project]-->build path-->configure build path-->add external jars
+ * then
+ * [right-click project]-->properties-->deployment assembly-->add jars from filesystem
  */
 @WebServlet("/ProfMailServlet")
 public class ProfMailServlet extends HttpServlet
