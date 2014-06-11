@@ -24,6 +24,7 @@
           <input type="submit" value="submit"/>
         </form>
       </td></tr>
+      <c:out value="${message}" />
     </table>
     <!--Email Errrrbody-->
     <form name="email_blast" method="post" action="/Scheduler/ProfMailServlet">
