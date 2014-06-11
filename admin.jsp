@@ -26,6 +26,19 @@
       </td></tr>
       <c:out value="${message}" />
     </table>
+    
+    <!-- Remove Instructor Form -->
+    <table BORDER="2" CELLPADDING="2">
+      <tr><td WIDTH="400">
+
+        <form name="removeInstructor" method="post" action="/Scheduler/RemoveProfessorServlet">
+          ID: <input type="text" name="id"/><br>
+          <input type="submit" value="submit"/>
+        </form>
+      </td></tr>
+      <c:out value="${message}" />
+    </table>
+  
     <!--Email Errrrbody-->
     <form name="email_blast" method="post" action="/Scheduler/ProfMailServlet">
       <input type="submit" value="Send Emails">
