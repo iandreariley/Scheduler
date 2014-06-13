@@ -31,12 +31,22 @@
     <table BORDER="2" CELLPADDING="2">
       <tr><td WIDTH="400">
 
-        <form name="removeInstructor" method="post" action="/Scheduler/RemoveProfessorServlet">
+        <form name="removeInstructor" method="post" action="/Scheduler/RemoveProfessorServlet" enctype="multipart/form-data">
           ID: <input type="text" name="id"/><br>
           <input type="submit" value="submit"/>
         </form>
       </td></tr>
-      <c:out value="${message}" />
+    </table>
+    
+    <!-- Upload File Form -->
+    <table BORDER="2" CELLPADDING="2">
+      <tr><td WIDTH="400">
+
+        <form name="upload" method="post" action="/Scheduler/UploadServlet">
+          <input type="file" name="file"/><br>
+          <input type="submit" value="submit"/>
+        </form>
+      </td></tr>
     </table>
   
     <!--Email Errrrbody-->
