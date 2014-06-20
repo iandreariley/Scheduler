@@ -80,6 +80,16 @@ public class ClassPreferenceServlet extends HttpServlet{
             }
 
         }
+        RequestDispatcher rd = request.getRequestDispatcher("submit.jsp");
+        
+        try
+        {
+        	rd.forward(request,  response);
+        }
+        catch(IOException exp)
+        {
+        	exp.printStackTrace();
+        }
 	  }
 	
 	
@@ -87,7 +97,7 @@ public class ClassPreferenceServlet extends HttpServlet{
 			throws IOException, ServletException{
 		response.setContentType("text/html");
 		
-		RequestDispatcher rd = request.getRequestDispatcher("PreferenceSheet.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("submit.jsp");
 		
 		try
 		{
